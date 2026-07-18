@@ -1,12 +1,17 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
-{%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
+{%- assign desktop_image = section.settings.image -%}
+{%- assign mobile_image = section.settings.mobile_image | default: section.settings.image -%}
+{%- assign desktop_image_2 = section.settings.image_2 -%}
+{%- assign mobile_image_2 = section.settings.mobile_image_2 | default: section.settings.image_2 -%}
+
+{%- if section.settings.image_height == 'adapt' and desktop_image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {
       #Banner-{{ section.id }}::before,
       #Banner-{{ section.id }} .banner__media::before,
       #Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
-        padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+        padding-bottom: {{ 1 | divided_by: desktop_image.aspect_ratio | times: 100 }}%;
         content: '';
         display: block;
       }
@@ -15,7 +20,7 @@
     @media screen and (min-width: 750px) {
       #Banner-{{ section.id }}::before,
       #Banner-{{ section.id }} .banner__media::before {
-        padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+        padding-bottom: {{ 1 | divided_by: desktop_image.aspect_ratio | times: 100 }}%;
         content: '';
         display: block;
       }
@@ -55,10 +60,11 @@
   id="Banner-{{ section.id }}"
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
 >
-  {%- if section.settings.image != blank -%}
-    <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  {%- if desktop_image != blank or mobile_image != blank -%}
+    <{% if section.settings.image_link == blank %}div{% else %}a href="{{ section.settings.image_link }}"{% endif %} class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {%- liquid
-        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        assign image_source = desktop_image | default: mobile_image
+        assign image_height = image_source.width | divided_by: image_source.aspect_ratio
         if section.settings.image_2 != blank
           assign image_class = 'banner__media-image-half'
         endif
@@ -70,51 +76,73 @@
           assign sizes = full_width
         endif
       -%}
-      {{
-        section.settings.image
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image.width,
-          height: image_height,
-          class: image_class,
-          sizes: sizes,
-          widths: widths,
-          fetchpriority: fetch_priority
-      }}
-    </div>
+      <picture>
+        {%- if mobile_image != blank and desktop_image != blank and mobile_image != desktop_image -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="{{ mobile_image | image_url: width: 750 }}"
+            width="{{ mobile_image.width }}"
+            height="{{ mobile_image.height }}"
+          >
+        {%- endif -%}
+        {{
+          image_source
+          | image_url: width: 3840
+          | image_tag:
+            width: image_source.width,
+            height: image_height,
+            class: image_class,
+            sizes: sizes,
+            widths: widths,
+            fetchpriority: fetch_priority
+        }}
+      </picture>
+    </{% if section.settings.image_link == blank %}div{% else %}a{% endif %}>
   {%- elsif section.settings.image_2 == blank -%}
     <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
     </div>
   {%- endif -%}
-  {%- if section.settings.image_2 != blank -%}
-    <div class="banner__media media{% if section.settings.image != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  {%- if desktop_image_2 != blank or mobile_image_2 != blank -%}
+    <{% if section.settings.image_link_2 == blank %}div{% else %}a href="{{ section.settings.image_link_2 }}"{% endif %} class="banner__media media{% if section.settings.image != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {%- liquid
-        assign image_height_2 = section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio
-        if section.settings.image != blank
+        assign image_source_2 = desktop_image_2 | default: mobile_image_2
+        assign image_height_2 = image_source_2.width | divided_by: image_source_2.aspect_ratio
+        if desktop_image != blank
           assign image_class_2 = 'banner__media-image-half'
         endif
-        if section.settings.image != blank and section.settings.stack_images_on_mobile
+        if desktop_image != blank and section.settings.stack_images_on_mobile
           assign sizes = stacked_sizes
-        elsif section.settings.image_2 != blank
+        elsif desktop_image_2 != blank
           assign sizes = half_width
         else
           assign sizes = full_width
         endif
       -%}
-      {{
-        section.settings.image_2
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image_2.width,
-          height: image_height_2,
-          class: image_class_2,
-          sizes: sizes,
-          widths: widths,
-          fetchpriority: fetch_priority
-      }}
-    </div>
+      <picture>
+        {%- if mobile_image_2 != blank and desktop_image_2 != blank and mobile_image_2 != desktop_image_2 -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="{{ mobile_image_2 | image_url: width: 750 }}"
+            width="{{ mobile_image_2.width }}"
+            height="{{ mobile_image_2.height }}"
+          >
+        {%- endif -%}
+        {{
+          image_source_2
+          | image_url: width: 3840
+          | image_tag:
+            width: image_source_2.width,
+            height: image_height_2,
+            class: image_class_2,
+            sizes: sizes,
+            widths: widths,
+            fetchpriority: fetch_priority
+        }}
+      </picture>
+    </{% if section.settings.image_link_2 == blank %}div{% else %}a{% endif %}>
   {%- endif -%}
+  {% if section.blocks.size > 0 %}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
@@ -164,6 +192,7 @@
       {%- endfor -%}
     </div>
   </div>
+  {% endif %}
 </div>
 
 {% schema %}
@@ -182,8 +211,28 @@
     },
     {
       "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Immagine 1 mobile"
+    },
+    {
+      "type": "url",
+      "id": "image_link",
+      "label": "Link immagine"
+    },
+    {
+      "type": "image_picker",
       "id": "image_2",
       "label": "t:sections.image-banner.settings.image_2.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image_2",
+      "label": "Immagine 2 mobile"
+    },
+    {
+      "type": "url",
+      "id": "image_link_2",
+      "label": "Link immagine 2"
     },
     {
       "type": "range",
@@ -214,6 +263,10 @@
         {
           "value": "large",
           "label": "t:sections.image-banner.settings.image_height.options__4.label"
+        },
+        {
+          "value": "full",
+          "label": "Altezza intera"
         }
       ],
       "default": "medium",

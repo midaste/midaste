@@ -17,6 +17,33 @@
 {%- endif -%}
 
 <style>
+  {% if section.settings.transparent_header and template.name == 'index' %}
+    #MainContent {
+      margin-top: -60px;
+    }
+
+    #shopify-section-{{ section.id }} .gradient {
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    #shopify-section-{{ section.id }} .gradient .header__icon,
+    #shopify-section-{{ section.id }} .gradient .header__heading-logo-wrapper {
+      transition: color 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) {
+      --gradient-background: transparent;
+    }
+
+    #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__icon {
+      color: #fff;
+    }
+
+    #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__heading-logo-wrapper {
+      filter: invert(1);
+    }
+  {% endif %}
+
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
@@ -122,7 +149,7 @@
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %} {% if section.settings.transparent_header and template.name == 'index' %} header-wrapper--transparent{% endif %}"
 >
   {%- liquid
     assign social_links = false
@@ -320,6 +347,7 @@
 
     connectedCallback() {
       this.header = document.querySelector('.section-header');
+      this.transparentHeader = this.header.querySelector('.header-wrapper--transparent');
       this.headerIsAlwaysSticky =
         this.getAttribute('data-sticky-type') === 'always' ||
         this.getAttribute('data-sticky-type') === 'reduce-logo-size';
@@ -392,6 +420,19 @@
       }
 
       this.currentScrollTop = scrollTop;
+
+      if (this.transparentHeader) {
+          const setTransparentClass = (isTransparent = false) => {
+              if (isTransparent) this.transparentHeader.classList.add('header-wrapper--scrolled');
+              else this.transparentHeader.classList.remove('header-wrapper--scrolled');
+          }
+
+          setTransparentClass(window.scrollY > 0);
+
+          document.addEventListener('scroll', debounce(event => {
+              setTransparentClass(window.scrollY > 0);
+          }, 50));
+      }
     }
 
     hide() {
@@ -584,6 +625,16 @@
       "id": "menu_color_scheme",
       "label": "t:sections.header.settings.menu_color_scheme.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Trasparentza intestazione"
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "Abilita intestazione trasparente",
+      "info": "Solo per la homepage"
     },
     {
       "type": "header",

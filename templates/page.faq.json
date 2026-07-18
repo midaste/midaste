@@ -1,0 +1,483 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_NQhJt7": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/immagine_banner_midaste.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "collapsible_content_ncPiML": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_pCVKhH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_9H6QqP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_PxAnkK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_eyhDp7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_pCVKhH",
+        "collapsible_row_9H6QqP",
+        "collapsible_row_PxAnkK",
+        "collapsible_row_eyhDp7"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "faqs",
+        "heading": "Account",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_rB37BN": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_YXb8et": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_Wtmaxq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_w8APQW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_EVYVa8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_YXb8et",
+        "collapsible_row_Wtmaxq",
+        "collapsible_row_w8APQW",
+        "collapsible_row_EVYVa8"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "faqs",
+        "heading": "Prodotti",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_HMRhwh": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_makfe7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_wW7VB4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_TGiNgV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_JXKJn3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_makfe7",
+        "collapsible_row_wW7VB4",
+        "collapsible_row_TGiNgV",
+        "collapsible_row_JXKJn3"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "faqs",
+        "heading": "Ordini e Pagamenti",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_DFWWkJ": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_YbAM7A": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_Q49BYt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_Tcng6x": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_G9z6eK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_YbAM7A",
+        "collapsible_row_Q49BYt",
+        "collapsible_row_Tcng6x",
+        "collapsible_row_G9z6eK"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "faqs",
+        "heading": "Spedizioni",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_FcpFKC": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_JCyKcC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_QtBPir": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_XREX4w": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_DbPgxM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_JCyKcC",
+        "collapsible_row_QtBPir",
+        "collapsible_row_XREX4w",
+        "collapsible_row_DbPgxM"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "faqs",
+        "heading": "Resi",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_YArDTL": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_hXE7tG": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_QxwEGp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_rDjq43": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_QbwneA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_hXE7tG",
+        "collapsible_row_QxwEGp",
+        "collapsible_row_rDjq43",
+        "collapsible_row_QbwneA"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "faqs",
+        "heading": "Rimborsi",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_6tJq3c": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_tkqQaT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_YHDgze": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_xg4FdB": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_WxC7wE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Riga comprimibile",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_tkqQaT",
+        "collapsible_row_YHDgze",
+        "collapsible_row_xg4FdB",
+        "collapsible_row_WxC7wE"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "faqs",
+        "heading": "Cambio Taglia",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_NQhJt7",
+    "collapsible_content_ncPiML",
+    "collapsible_content_rB37BN",
+    "collapsible_content_HMRhwh",
+    "collapsible_content_DFWWkJ",
+    "collapsible_content_FcpFKC",
+    "collapsible_content_YArDTL",
+    "collapsible_content_6tJq3c"
+  ]
+}

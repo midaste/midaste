@@ -1,0 +1,73 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_pFbpUq": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_Fw6TtE": {
+          "type": "caption",
+          "settings": {
+            "caption": "MIDASTE",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_FTk94R": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Vision",
+            "heading_size": "h1"
+          }
+        },
+        "text_fGwYBz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Associa un testo a un'immagine per dare importanza al prodotto, alla collezione o all'articolo del blog di tua scelta. Aggiungi dettagli sulla disponibilità, sullo stile o fornisci una recensione.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "caption_Fw6TtE",
+        "heading_FTk94R",
+        "text_fGwYBz"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/A349CB2F-97BD-4231-BD4A-F7889012B79B.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_pFbpUq"
+  ]
+}

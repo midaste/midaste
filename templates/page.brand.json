@@ -52,6 +52,7 @@
       "settings": {
         "image": "shopify://shop_images/A349CB2F-97BD-4231-BD4A-F7889012B79B.jpg",
         "height": "adapt",
+        "full_screen": true,
         "desktop_image_width": "small",
         "layout": "image_first",
         "image_behavior": "none",

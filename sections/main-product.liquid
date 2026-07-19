@@ -113,6 +113,8 @@
                     {{- block.settings.text -}}
                   </p>
                 {%- when 'title' -%}
+                  {% assign price_block = section.blocks | where: 'type', 'price' | first %}
+
                   <div class="product__title" {{ block.shopify_attributes }}>
                     <h1>{{ product.title | escape }}</h1>
                     <a href="{{ product.url }}" class="product__title">
@@ -120,13 +122,42 @@
                         {{ product.title | escape }}
                       </h2>
                     </a>
+
+                    {% if price_block != blank and price_block.settings.render_beside_title %}
+                      {%- render 'price',
+                        product: product,
+                        use_variant: true,
+                        price_class: 'price--large'
+                      -%}
+
+                      <style>
+                         .product__title {
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
+                          gap: 0.5rem;
+                          flex-wrap: wrap;
+
+                          h1 {
+                            flex: 1 1 0;
+                            min-width: 0;
+                            margin: 0;
+                            overflow-wrap: anywhere;
+                            word-break: break-word;
+                          }
+                        }
+                      </style>
+                    {% endif %}
                   </div>
                 {%- when 'price' -%}
+                  {% if block.settings.render_beside_title %}
+                    {% continue %}
+                  {% endif %}
+
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
                       use_variant: true,
-                      show_badges: true,
                       price_class: 'price--large'
                     -%}
                   </div>
@@ -817,6 +848,13 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "render_beside_title",
+          "label": "Mostra accanto al titolo"
+        }
+      ],
       "limit": 1
     },
     {

@@ -18,7 +18,9 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "render_beside_title": true
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -74,7 +76,7 @@
       "settings": {
         "enable_sticky_info": false,
         "color_scheme": "scheme-1",
-        "media_size": "small",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_type": "custom",

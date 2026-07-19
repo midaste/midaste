@@ -253,6 +253,29 @@
   }
 }
 
+/* Ensure desktop images also fill and center their containers. */
+@media screen and (min-width: 750px) {
+  .banner__media:not(.animate--zoom-in) > picture,
+  .banner__media:not(.animate--zoom-in) > picture > img,
+  .banner__media:not(.animate--zoom-in) > img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .banner__media-half > picture > img,
+  .banner__media-half > img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+
 .banner--adapt,
 .banner--adapt_image.banner--mobile-bottom .banner__media:not(.placeholder) {
   height: auto;

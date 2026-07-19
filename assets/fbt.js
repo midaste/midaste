@@ -1,14 +1,31 @@
-const transparentHeader = document.querySelector('.header-wrapper--transparent');
+if (!customElements.get('fbt-slider')) {
+    class FBTSlider extends HTMLElement {
+        connectedCallback() {
+            this.swiper = new Swiper(this, {
+                scrollbar: {
+                    el: '.swiper-scrollbar'
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }
+            });
 
-if (transparentHeader) {
-    const setTransparentClass = (isTransparent = false) => {
-        if (isTransparent) transparentHeader.classList.add('header-wrapper--scrolled');
-        else transparentHeader.classList.remove('header-wrapper--scrolled');
+            this.addEventListener('mouseenter', () => {
+                if (this.swiper.activeIndex === 0) {
+                    this.swiper.slideTo(1);
+                    this.swiped = true;
+                } else this.swiped = false;
+            });
+
+            this.addEventListener('mouseleave', () => {
+                if (this.swiped && this.swiper.activeIndex === 1) {
+                    this.swiper.slideTo(0);
+                    this.swiped = false;
+                }
+            });
+        }
     }
 
-    setTransparentClass(window.scrollY > 0);
-
-    document.addEventListener('scroll', debounce(event => {
-        setTransparentClass(window.scrollY > 0);
-    }, 50));
+    customElements.define('fbt-slider', FBTSlider);
 }

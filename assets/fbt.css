@@ -1,0 +1,22 @@
+fbt-slider .swiper-scrollbar,
+fbt-slider .swiper-scrollbar-drag,
+fbt-slider .swiper-notification {
+    display: block !important;
+}
+
+fbt-slider .swiper-button {
+    width: 30px;
+    height: 30px;
+    color: #000000;
+    border-radius: 50%;
+    background-color: #ffffff;
+
+    :not(.swiper-button-disabled) {
+        opacity: 1;
+    }
+
+    svg {
+        width: 50%;
+        height: 50%;
+    }
+}

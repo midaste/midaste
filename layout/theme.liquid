@@ -320,6 +320,10 @@
       }
     </script>
 
+  {{ 'swiper.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'swiper.js' | asset_url }}" defer></script>
+  
+  {{ 'fbt.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'fbt.js' | asset_url }}" defer></script>
   </head>
 

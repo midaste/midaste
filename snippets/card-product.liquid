@@ -64,7 +64,80 @@
           class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
           style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
         >
-          {%- if featured_media -%}
+
+          <fbt-slider class="swiper card__media--slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+                  <div class="media media--transparent media--hover-effect">
+                    {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+                    <img
+                      srcset="
+                        {%- if featured_media.width >= 165 -%}{{ featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if featured_media.width >= 360 -%}{{ featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if featured_media.width >= 533 -%}{{ featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                        {%- if featured_media.width >= 720 -%}{{ featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if featured_media.width >= 940 -%}{{ featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                        {%- if featured_media.width >= 1066 -%}{{ featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                        {{ featured_media | image_url }} {{ featured_media.width }}w
+                      "
+                      src="{{ featured_media | image_url: width: 533 }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                      alt="{{ featured_media.alt | escape }}"
+                      class="motion-reduce"
+                      {% unless lazy_load == false %}
+                        loading="lazy"
+                      {% endunless %}
+                      width="{{ featured_media.width }}"
+                      height="{{ featured_media.height }}"
+                    >
+                    {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+                  </div>
+                </div>
+              </div>
+
+              {% for media in card_product.media %}
+                {% if media == featured_media %}
+                  {% continue %}
+                {% endif %}
+                
+                <div class="swiper-slide">
+                  <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+                  <div class="media media--transparent media--hover-effect">
+                    {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+                    <img
+                      srcset="
+                        {%- if media.width >= 165 -%}{{ media | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
+                        {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}
+                        {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                        {{ media | image_url }} {{ media.width }}w
+                      "
+                      src="{{ media | image_url: width: 533 }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                      alt="{{ media.alt | escape }}"
+                      class="motion-reduce"
+                      {% unless lazy_load == false %}
+                        loading="lazy"
+                      {% endunless %}
+                      width="{{ media.width }}"
+                      height="{{ media.height }}"
+                    >
+                    {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+                  </div>
+                </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-scrollbar"></div>
+            <div class="swiper-button swiper-button-next"></div>
+            <div class="swiper-button swiper-button-prev"></div>
+          </fbt-slider>
+
+
+          {% comment %} {%- if featured_media -%}
             <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
               <div class="media media--transparent media--hover-effect">
                 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
@@ -112,7 +185,9 @@
                 {%- endif -%}
               </div>
             </div>
-          {%- endif -%}
+          {%- endif -%} {% endcomment %}
+
+
           <div class="card__content">
             <div class="card__information">
               <h3

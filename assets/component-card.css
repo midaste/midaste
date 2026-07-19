@@ -85,6 +85,15 @@
   border-bottom-left-radius: 0;
 }
 
+.card .card__inner .card__media--slider {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: calc(100% - 2 * var(--image-padding));
+  margin: var(--image-padding);
+  overflow: hidden;
+}
+
 .card--standard.card--text {
   background-color: transparent;
 }

@@ -59,9 +59,14 @@
             elsif section.blocks.size > 4
               assign footer_grid_class = 'grid--3-col-tablet'
             endif
+
+            assign desktop_grid_class = 'grid--4-col-tablet'
+            if section.settings.newsletter_enable
+              assign desktop_grid_class = 'grid--5-col-tablet'
+            endif
           -%}
           <div
-            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--5-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="footer__blocks-wrapper grid grid--1-col grid--2-col {{ desktop_grid_class }} {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
             {% endif %}
@@ -303,10 +308,13 @@
         {%- endif -%}
       </div>
     </div>
-    <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
+    <div 
+      class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}"
+      style="justify-content: {{ section.settings.copyright_alignment }};"
+    >
       <div class="footer__copyright caption">
-        <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name }}
+        <small class="copyright__content">
+          {% if section.settings.show_copyright_year %}&copy; {{ 'now' | date: '%Y' }},{% endif %} {{ section.settings.copyright }}
         </small>
         {%- if section.settings.show_policy -%}
           <ul class="policies list-unstyled">
@@ -456,6 +464,28 @@
       "id": "newsletter_heading",
       "default": "t:sections.footer.settings.newsletter_heading.default",
       "label": "t:sections.footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "header",
+      "content": "Copyright"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_copyright_year",
+      "default": true,
+      "label": "Mostra l'anno corrente"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "default": "Midaste",
+      "label": "Testo"
+    },
+    {
+      "type": "text_alignment",
+      "id": "copyright_alignment",
+      "label": "Allineamento",
+      "default": "center"
     },
     {
       "type": "header",

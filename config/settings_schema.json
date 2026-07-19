@@ -626,6 +626,16 @@
         "id": "show_badges",
         "label": "Mostra badge",
         "default": false
+      },
+      {
+        "type": "header",
+        "content": "Slider immagini"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_media_slider",
+        "label": "Mostra slider immagini",
+        "default": true
       }
     ]
   },

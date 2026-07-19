@@ -77,7 +77,22 @@
     <div class="page-width">
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
-          {% render 'product-media-gallery', variant_images: variant_images %}
+          {% if section.settings.gallery_type == 'custom' %}
+            <fbt-slider class="swiper pdp__media--slider" style="--aspect-ratio: {{ 5.0 | divided_by: 4.0 | times: 100.0 }}%;">
+              <div class="swiper-wrapper">
+                {% for media in product.media %}
+                  <div class="swiper-slide">
+                    {% render 'product-media', media: media, variant_images: variant_images %}
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="swiper-scrollbar"></div>
+              <div class="swiper-button swiper-button-next"></div>
+              <div class="swiper-button swiper-button-prev"></div>
+            </fbt-slider>
+          {% else %}
+            {% render 'product-media-gallery', variant_images: variant_images %}
+          {% endif %}
         </div>
         <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <section
@@ -2207,6 +2222,22 @@
     },
     {
       "type": "select",
+      "id": "gallery_type",
+      "options": [
+        {
+          "value": "default",
+          "label": "Original media gallery"
+        },
+        {
+          "value": "custom",
+          "label": "Custom slider"
+        }
+      ],
+      "default": "default",
+      "label": "Media gallery type"
+    },
+    {
+      "type": "select",
       "id": "gallery_layout",
       "options": [
         {
@@ -2227,7 +2258,8 @@
         }
       ],
       "default": "stacked",
-      "label": "t:sections.main-product.settings.gallery_layout.label"
+      "label": "t:sections.main-product.settings.gallery_layout.label",
+      "visible_if": "{{ section.settings.gallery_type == 'default' }}"
     },
     {
       "type": "select",
@@ -2247,7 +2279,8 @@
         }
       ],
       "default": "hide",
-      "label": "t:sections.main-product.settings.mobile_thumbnails.label"
+      "label": "t:sections.main-product.settings.mobile_thumbnails.label",
+      "visible_if": "{{ section.settings.gallery_type == 'default' }}"
     },
     {
       "type": "select",

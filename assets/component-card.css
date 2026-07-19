@@ -137,6 +137,12 @@
 .card__information {
   grid-row-start: 2;
   padding: 1.3rem 1rem;
+
+  @media screen and (width > 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .card:not(.ratio) > .card__content {
@@ -303,6 +309,9 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 100;
+  --color-foreground: 143, 143, 143;
 }
 
 .card__heading:last-child {
@@ -461,12 +470,18 @@
   overflow: hidden;
 }
 
+.card-information .price {
+  --color-foreground: 143, 143, 143;
+}
+
 .card-information > * + * {
   margin-top: 0.5rem;
 }
 
-.card-information {
-  width: 100%;
+@media screen and (width <= 768px) {
+  .card-information {
+    width: 100%;
+  }
 }
 
 .card-information > * {

@@ -179,6 +179,10 @@ cart-drawer {
   width: 100%;
 }
 
+.cart-drawer .cart-items tbody tr:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
 .cart-drawer thead {
   display: inline-table;
   width: 100%;

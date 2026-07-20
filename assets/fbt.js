@@ -7,7 +7,8 @@ if (!customElements.get('fbt-slider')) {
 
             this.swiper = new Swiper(this, {
                 scrollbar: {
-                    el: '.swiper-scrollbar'
+                    el: '.swiper-scrollbar',
+                    hide: true
                 },
                 navigation: {
                     nextEl: '.swiper-button-next',

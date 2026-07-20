@@ -79,7 +79,7 @@
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_type": "custom",
+        "gallery_type": "default",
         "enable_loop": true,
         "hide_form_label": true,
         "gallery_layout": "thumbnail_slider",

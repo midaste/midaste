@@ -26,6 +26,12 @@
   {%- endif -%}
 
   {%- style -%}
+    {% if section.settings.hide_form_label %}
+      legend.form__label {
+        display: none;
+      }
+    {% endif %}
+
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -2278,6 +2284,12 @@
       "default": true,
       "label": "Enable slider loop",
       "visible_if": "{{ section.settings.gallery_type == 'custom' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_form_label",
+      "default": true,
+      "label": "Hide form label"
     },
     {
       "type": "select",

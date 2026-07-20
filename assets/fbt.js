@@ -2,7 +2,8 @@ if (!customElements.get('fbt-slider')) {
     class FBTSlider extends HTMLElement {
         connectedCallback() {
             this.config = {
-                hover: this.dataset.hover === 'true'
+                hover: this.dataset.hover === 'true',
+                loop: this.dataset.loop === 'true'
             }
 
             this.swiper = new Swiper(this, {
@@ -10,6 +11,11 @@ if (!customElements.get('fbt-slider')) {
                     el: '.swiper-scrollbar',
                     hide: true
                 },
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'fraction',
+                },
+                loop: this.config.loop,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',

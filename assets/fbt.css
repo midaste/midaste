@@ -16,6 +16,11 @@
             object-fit: cover;
         }
     }
+
+    .swiper-pagination {
+        text-align: left;
+        padding-left: 8px;
+    }
 }
 
 fbt-slider .swiper-slide img {

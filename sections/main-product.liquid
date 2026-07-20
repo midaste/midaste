@@ -78,7 +78,7 @@
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
           {% if section.settings.gallery_type == 'custom' %}
-            <fbt-slider class="swiper pdp__media--slider" style="--aspect-ratio: {{ 5.0 | divided_by: 4.0 | times: 100.0 }}%;">
+            <fbt-slider class="swiper pdp__media--slider" style="--aspect-ratio: {{ 5.0 | divided_by: 4.0 | times: 100.0 }}%;" data-loop="true">
               <div class="swiper-wrapper">
                 {% for media in product.media %}
                   <div class="swiper-slide">
@@ -86,9 +86,7 @@
                   </div>
                 {% endfor %}
               </div>
-              <div class="swiper-scrollbar"></div>
-              <div class="swiper-button swiper-button-next"></div>
-              <div class="swiper-button swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
             </fbt-slider>
           {% else %}
             {% render 'product-media-gallery', variant_images: variant_images %}

@@ -88,7 +88,21 @@
               <div class="swiper-wrapper">
                 {% for media in product.media %}
                   <div class="swiper-slide">
-                    {% render 'product-media', media: media, variant_images: variant_images %}
+
+                    {% if section.settings.image_zoom == 'lightbox' %}
+                      <modal-opener
+                        class="product__modal-opener product__modal-opener--{{ media.media_type }}"
+                        data-modal="#ProductModal-{{ section.id }}"
+                      >
+                        <button class="product__media-toggle product__media-zoom-lightbox quick-add-hidden" type="button" aria-haspopup="dialog" data-media-id="{{ media.id }}">
+                    {% endif %}
+
+                      {% render 'product-media', media: media, variant_images: variant_images %}
+                      
+                    {% if section.settings.image_zoom == 'lightbox' %}
+                        </button>
+                      </modal-opener>
+                    {% endif %}
                   </div>
                 {% endfor %}
               </div>
@@ -2217,6 +2231,12 @@
       "default": "scheme-1"
     },
     {
+      "type": "checkbox",
+      "id": "hide_form_label",
+      "default": true,
+      "label": "Nascondi label varianti"
+    },
+    {
       "type": "header",
       "content": "t:sections.main-product.settings.header.content"
     },
@@ -2286,12 +2306,6 @@
       "visible_if": "{{ section.settings.gallery_type == 'custom' }}"
     },
     {
-      "type": "checkbox",
-      "id": "hide_form_label",
-      "default": true,
-      "label": "Hide form label"
-    },
-    {
       "type": "select",
       "id": "gallery_layout",
       "options": [
@@ -2354,12 +2368,18 @@
       "label": "t:sections.main-product.settings.media_position.label"
     },
     {
+      "type": "header",
+      "content": "Info",
+      "info": "Lo zoom hover e' disponibile solo con la galleria di default",
+      "visible_if": "{{ section.settings.image_zoom == 'hover' and section.settings.gallery_type == 'custom' }}"
+    },
+    {
       "type": "select",
       "id": "image_zoom",
       "options": [
         {
           "value": "lightbox",
-          "label": "t:sections.main-product.settings.image_zoom.options__1.label"
+          "label": "t:sections.main-product.settings.image_zoom.options__1.label",
         },
         {
           "value": "hover",

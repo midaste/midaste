@@ -2628,6 +2628,7 @@ input[type='checkbox'] {
   display: block;
   position: absolute;
   background: rgba(var(--color-foreground), 0.5);
+  z-index: 1;
 }
 
 .header__icon--account shop-user-avatar {

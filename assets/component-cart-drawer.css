@@ -27,6 +27,11 @@
   flex-direction: column;
   transform: translateX(100%);
   transition: transform var(--duration-default) ease;
+
+  @media screen and (width <= 768px) {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .drawer__inner-empty {

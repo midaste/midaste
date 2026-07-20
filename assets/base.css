@@ -2583,6 +2583,42 @@ input[type='checkbox'] {
   margin-right: -1.2rem;
 }
 
+@media screen and (max-width: 749px) {
+  .header__icons {
+    padding-right: 0.4rem;
+    gap: 0.1rem;
+  }
+
+  .header__icon .svg-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header__icon,
+  .header__icon--cart .icon {
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+
+  .header__icon .icon {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+
+  .header__icon--account shop-user-avatar {
+    --shop-avatar-size: 2.2rem;
+  }
+
+  .header__icon--cart {
+    margin-right: -0.4rem;
+    
+    .icon {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+}
+
 .header__icon--menu[aria-expanded='true']::before {
   content: '';
   top: 0;

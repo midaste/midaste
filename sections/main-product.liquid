@@ -78,7 +78,7 @@
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
           {% if section.settings.gallery_type == 'custom' %}
-            <fbt-slider class="swiper pdp__media--slider" style="--aspect-ratio: {{ 5.0 | divided_by: 4.0 | times: 100.0 }}%;" data-loop="true">
+            <fbt-slider class="swiper pdp__media--slider" style="--aspect-ratio: {{ 5.0 | divided_by: 4.0 | times: 100.0 }}%;" data-loop="{{ section.settings.enable_loop }}">
               <div class="swiper-wrapper">
                 {% for media in product.media %}
                   <div class="swiper-slide">
@@ -2271,6 +2271,13 @@
       ],
       "default": "default",
       "label": "Media gallery type"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "default": true,
+      "label": "Enable slider loop",
+      "visible_if": "{{ section.settings.gallery_type == 'custom' }}"
     },
     {
       "type": "select",

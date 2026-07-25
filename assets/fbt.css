@@ -28,6 +28,11 @@ fbt-slider .swiper-slide img {
     object-fit: cover;
 }
 
+fbt-slider .swiper-scrollbar {
+    --swiper-scrollbar-size: 2px;
+    --swiper-scrollbar-drag-bg-color: rgba(0, 0, 0, 0.4);
+}
+
 fbt-slider .swiper-scrollbar,
 fbt-slider .swiper-scrollbar-drag,
 fbt-slider .swiper-notification {

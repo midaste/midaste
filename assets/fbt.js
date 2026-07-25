@@ -6,7 +6,12 @@ if (!customElements.get('fbt-slider')) {
                 loop: this.dataset.loop === 'true'
             }
 
+            console.log(this.config)
+
             this.swiper = new Swiper(this, {
+                resistance: true,
+                resistanceRatio: 0,
+
                 scrollbar: {
                     el: '.swiper-scrollbar',
                     hide: true

@@ -43,16 +43,22 @@ if (!customElements.get('fbt-slider')) {
 
             if (this.config.hover) this.initHover();
         }
-        
+
         initHover() {
             this.addEventListener('mouseenter', () => {
                 if (this.swiper.activeIndex === 0) {
-                    this.swiper.slideTo(1);
-                    this.swiped = true;
-                } else this.swiped = false;
+                    this.hoverTimeout = setTimeout(() => {
+                        this.swiper.slideTo(1);
+                        this.swiped = true;
+                    }, 1000);
+                } else {
+                    this.swiped = false;
+                }
             });
-    
+
             this.addEventListener('mouseleave', () => {
+                clearTimeout(this.hoverTimeout);
+
                 if (this.swiped && this.swiper.activeIndex === 1) {
                     this.swiper.slideTo(0);
                     this.swiped = false;

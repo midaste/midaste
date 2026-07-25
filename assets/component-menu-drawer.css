@@ -86,7 +86,11 @@ details[open].menu-opening > .menu-drawer__submenu {
   grid-template-rows: 1fr auto;
   align-content: space-between;
   overflow-y: auto;
-  height: 100%;
+  height: calc(100dvh - 62px);
+
+  @media screen and (width <= 768px) {
+    height: calc(100dvh - 50px);
+  }
 }
 
 .menu-drawer__navigation {

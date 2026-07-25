@@ -9,17 +9,36 @@ if (!customElements.get('fbt-slider')) {
             this.swiper = new Swiper(this, {
                 scrollbar: {
                     el: '.swiper-scrollbar',
-                    hide: true
+                    hide: false,
                 },
+
                 pagination: {
                     el: '.swiper-pagination',
                     type: 'fraction',
                 },
+
                 loop: this.config.loop,
+
+                // Mobile defaults
+                simulateTouch: true,
+                allowTouchMove: true,
+
                 navigation: {
+                    enabled: false,
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
-                }
+                },
+
+                breakpoints: {
+                    1024: {
+                        simulateTouch: false,
+                        allowTouchMove: false,
+
+                        navigation: {
+                            enabled: true,
+                        },
+                    },
+                },
             });
 
             if (this.config.hover) this.initHover();

@@ -1603,6 +1603,11 @@ details[open] > .share-button__fallback {
   min-width: calc(7rem + (var(--inputs-border-width) * 2));
   position: relative;
   border: 0;
+
+  @media screen and (width <= 768px) {
+    height: 4rem;
+    font-size: 1.3rem;
+  }
 }
 
 .field:before,
@@ -1753,6 +1758,10 @@ details[open] > .share-button__fallback {
   color: rgba(var(--color-foreground), 0.75);
   letter-spacing: 0.1rem;
   line-height: 1.5;
+  
+  @media screen and (width <= 768px) {
+    font-size: 1.3rem;
+  }
 }
 
 .field__input:focus ~ .field__label,

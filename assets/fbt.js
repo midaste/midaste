@@ -69,3 +69,19 @@ if (!customElements.get('fbt-slider')) {
 
     customElements.define('fbt-slider', FBTSlider);
 }
+
+// Footer
+const footerAccordions = document.querySelectorAll('.footer details');
+
+if (footerAccordions.length > 0) {
+    const mql = window.matchMedia("(width <= 768px)");
+    
+    const updateAccorionsVisibility = () => {
+        if (mql.matches) footerAccordions.forEach(accordion => accordion.removeAttribute('open'));
+        else footerAccordions.forEach(accordion => accordion.setAttribute('open', ''));
+    }
+
+    mql.addEventListener('change', () => {
+        updateAccorionsVisibility();
+    });
+}

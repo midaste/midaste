@@ -23,6 +23,14 @@
     }
 }
 
+fbt-slider {
+    border-radius: calc(var(--border-radius) - var(--border-width) - var(--image-padding));
+}
+
+fbt-slider .card__media {
+    border-radius: 0 !important;
+}
+
 fbt-slider .swiper-slide img {
     width: 100%;
     object-fit: cover;

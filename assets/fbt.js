@@ -12,6 +12,8 @@ if (!customElements.get('fbt-slider')) {
                 resistance: true,
                 resistanceRatio: 0,
 
+                roundLengths: true,
+
                 scrollbar: {
                     el: '.swiper-scrollbar',
                     hide: true

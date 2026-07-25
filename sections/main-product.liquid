@@ -106,7 +106,12 @@
                   </div>
                 {% endfor %}
               </div>
-              <div class="swiper-pagination"></div>
+              {% if product.media.size > 1 %}
+                <div class="swiper-pagination"></div>
+                <div class="swiper-scrollbar"></div>
+                <div class="swiper-button swiper-button-next"></div>
+                <div class="swiper-button swiper-button-prev"></div>
+              {% endif %}
             </fbt-slider>
           {% else %}
             {% render 'product-media-gallery', variant_images: variant_images %}

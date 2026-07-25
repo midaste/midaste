@@ -20,6 +20,16 @@
     .swiper-pagination {
         text-align: left;
         padding-left: 8px;
+
+        @media screen and (width <= 1024px) {
+            display: none;
+        }
+    }
+
+    .swiper-scrollbar {
+        @media screen and (width > 1024px) {
+            display: none !important;
+        }
     }
 }
 

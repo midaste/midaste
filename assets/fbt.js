@@ -9,7 +9,7 @@ if (!customElements.get('fbt-slider')) {
             this.swiper = new Swiper(this, {
                 scrollbar: {
                     el: '.swiper-scrollbar',
-                    hide: false,
+                    hide: true
                 },
 
                 pagination: {

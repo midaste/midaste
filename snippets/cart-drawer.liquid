@@ -106,13 +106,14 @@
                           role="cell"
                           headers="CartDrawer-ColumnProductImage"
                         >
-                          {% if item.image %}
+                          {% assign item_image = item.product.metafields.custom.featured_media.value | default: item.image %}
+                          {% if item_image %}
                             {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                             <a href="{{ item.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"> </a>
                             <img
                               class="cart-item__image"
-                              src="{{ item.image | image_url: width: 300 }}"
-                              alt="{{ item.image.alt | escape }}"
+                              src="{{ item_image | image_url: width: 300 }}"
+                              alt="{{ item_image.alt | escape }}"
                               loading="lazy"
                               width="150"
                               height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"

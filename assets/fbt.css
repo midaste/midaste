@@ -1,4 +1,6 @@
 .pdp__media--slider {
+    margin: 0;
+
     @media screen and (width > 1024px) {
         width: 80%;
     }

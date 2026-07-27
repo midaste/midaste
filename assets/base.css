@@ -2603,6 +2603,10 @@ input[type='checkbox'] {
 }
 
 @media screen and (max-width: 749px) {
+  header.header {
+    padding-right: 2rem !important;
+  }
+
   .header__icons {
     padding-right: 0.2rem;
     gap: 0rem;

@@ -42,7 +42,7 @@
 }
 
 .banner--full {
-  height: 100dvh !important;
+  height: 101dvh !important;
 }
 
 .banner::after,

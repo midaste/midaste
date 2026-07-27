@@ -3,7 +3,8 @@ if (!customElements.get('fbt-slider')) {
         connectedCallback() {
             this.config = {
                 hover: this.dataset.hover === 'true',
-                loop: this.dataset.loop === 'true'
+                loop: this.dataset.loop === 'true',
+                hideScrollbar: this.dataset.hideScrollbar === 'true'
             }
 
             this.swiper = new Swiper(this, {
@@ -14,7 +15,7 @@ if (!customElements.get('fbt-slider')) {
 
                 scrollbar: {
                     el: '.swiper-scrollbar',
-                    hide: true
+                    hide: this.config.hideScrollbar
                 },
 
                 pagination: {

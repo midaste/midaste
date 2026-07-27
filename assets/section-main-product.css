@@ -89,6 +89,12 @@ product-info {
   }
 }
 
+@media screen and (min-width: 1025px) {
+  .product__info-wrapper {
+    padding: 5rem 0;
+  }
+}
+
 /* Dynamic checkout */
 
 .shopify-payment-button__button {

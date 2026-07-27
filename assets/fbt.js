@@ -86,6 +86,8 @@ if (footerAccordions.length > 0) {
         else footerAccordions.forEach(accordion => accordion.setAttribute('open', ''));
     }
 
+    updateAccorionsVisibility();
+
     mql.addEventListener('change', () => {
         updateAccorionsVisibility();
     });

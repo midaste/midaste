@@ -87,6 +87,30 @@
             <fbt-slider class="swiper pdp__media--slider" style="--aspect-ratio: {{ 5.0 | divided_by: 4.0 | times: 100.0 }}%;" data-loop="{{ section.settings.enable_loop }}">
               <div class="swiper-wrapper">
                 {% for media in product.media %}
+                  {% if media == product.featured_media and product.metafields.custom.featured_media.value != blank %}
+
+                    <div class="swiper-slide">
+
+                      {% if section.settings.image_zoom == 'lightbox' %}
+                        <modal-opener
+                          class="product__modal-opener product__modal-opener--image"
+                          data-modal="#ProductModal-{{ section.id }}"
+                        >
+                          <button class="product__media-toggle product__media-zoom-lightbox quick-add-hidden" type="button" aria-haspopup="dialog" data-media-id="{{ product.metafields.custom.featured_media.value.id }}">
+                      {% endif %}
+
+                        {% render 'product-media', media: product.metafields.custom.featured_media.value, variant_images: variant_images %}
+                        
+                      {% if section.settings.image_zoom == 'lightbox' %}
+                          </button>
+                        </modal-opener>
+                      {% endif %}
+                    </div>
+
+                    {% continue %}
+
+                  {% endif %}
+
                   <div class="swiper-slide">
 
                     {% if section.settings.image_zoom == 'lightbox' %}
@@ -105,6 +129,26 @@
                     {% endif %}
                   </div>
                 {% endfor %}
+
+                {% if product.metafields.custom.featured_media.value != blank %}
+                  <div class="swiper-slide">
+
+                    {% if section.settings.image_zoom == 'lightbox' %}
+                      <modal-opener
+                        class="product__modal-opener product__modal-opener--{{ product.featured_media.media_type }}"
+                        data-modal="#ProductModal-{{ section.id }}"
+                      >
+                        <button class="product__media-toggle product__media-zoom-lightbox quick-add-hidden" type="button" aria-haspopup="dialog" data-media-id="{{ product.featured_media.id }}">
+                    {% endif %}
+
+                      {% render 'product-media', media: product.featured_media, variant_images: variant_images %}
+                      
+                    {% if section.settings.image_zoom == 'lightbox' %}
+                        </button>
+                      </modal-opener>
+                    {% endif %}
+                  </div>
+                {% endif %}
               </div>
               {% if product.media.size > 1 %}
                 <div class="swiper-pagination"></div>

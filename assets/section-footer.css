@@ -121,6 +121,7 @@
 
   .footer__blocks-wrapper--newsletter {
     flex: 0 0 30%;
+    order: 999;
 
     .newsletter-form {
       margin: 0;
@@ -131,10 +132,6 @@
     padding-left: 0;
     padding-right: 0;
     align-items: flex-end;
-  }
-
-  .footer-block--newsletter-grid-item {
-    order: 999;
   }
 }
 

@@ -111,6 +111,22 @@
 }
 
 @media screen and (min-width: 750px) {
+  .footer__menu {
+    display: flex;
+  }
+
+  .footer__blocks-wrapper--menu {
+    flex: 0 0 70%;
+  }
+
+  .footer__blocks-wrapper--newsletter {
+    flex: 0 0 30%;
+
+    .newsletter-form {
+      margin: 0;
+    }
+  }
+
   .footer__column--info {
     padding-left: 0;
     padding-right: 0;

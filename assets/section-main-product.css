@@ -95,6 +95,12 @@ product-info {
   }
 }
 
+@media screen and (width <= 768px) {
+  .product__info-wrapper {
+    padding-top: 1.5rem;
+  }
+}
+
 /* Dynamic checkout */
 
 .shopify-payment-button__button {

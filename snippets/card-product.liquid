@@ -66,7 +66,7 @@
         >
 
           {% if settings.show_media_slider %}
-            <fbt-slider class="swiper card__media--slider" data-hover="true">
+            <fbt-slider class="swiper card__media--slider" data-hover="true" data-loop="true">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">

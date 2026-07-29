@@ -616,6 +616,26 @@
         "unit": "px",
         "label": "t:settings_schema.global.settings.blur.label",
         "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Badge"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_badges",
+        "label": "Mostra badge",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Slider immagini"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_media_slider",
+        "label": "Mostra slider immagini",
+        "default": true
       }
     ]
   },
@@ -1432,6 +1452,12 @@
         "type": "checkbox",
         "id": "show_cart_note",
         "label": "t:settings_schema.cart.settings.show_cart_note.label",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_tax_note",
+        "label": "Mostra nota tasse e spese di spedizione",
         "default": false
       },
       {

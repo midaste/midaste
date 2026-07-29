@@ -89,6 +89,18 @@ product-info {
   }
 }
 
+@media screen and (min-width: 1025px) {
+  .product__info-wrapper {
+    padding: 5rem 0;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .product__info-wrapper {
+    padding-top: 1.5rem;
+  }
+}
+
 /* Dynamic checkout */
 
 .shopify-payment-button__button {
@@ -175,6 +187,10 @@ product-info {
   max-width: 44rem;
   min-width: fit-content;
   border: none;
+
+  @media screen and (width <= 768px) {
+    text-align: center;
+  }
 }
 
 .product-form__input .form__label {
@@ -248,6 +264,13 @@ a.product__text {
 .product__title {
   word-break: break-word;
   margin-bottom: 1.5rem;
+  
+  h1,
+  .price,
+  .price__container {
+    font-size: 1.3rem;
+    margin: 0 !important;
+  }
 }
 
 .product__title > * {
@@ -268,6 +291,7 @@ a.product__text {
 
 .product__accordion .accordion__content {
   padding: 0 1rem;
+  font-size: 1.3rem;
 }
 
 .product .price .badge {

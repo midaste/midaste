@@ -85,6 +85,15 @@
   border-bottom-left-radius: 0;
 }
 
+.card .card__inner .card__media--slider {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: calc(100% - 2 * var(--image-padding));
+  margin: var(--image-padding);
+  overflow: hidden;
+}
+
 .card--standard.card--text {
   background-color: transparent;
 }
@@ -137,6 +146,12 @@
 .card__information {
   grid-row-start: 2;
   padding: 1.3rem 1rem;
+
+  @media screen and (width > 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .card:not(.ratio) > .card__content {
@@ -303,6 +318,9 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 13px;
+  font-weight: 100;
+  --color-foreground: 0, 0, 0;
 }
 
 .card__heading:last-child {
@@ -358,6 +376,7 @@
 
 .card__heading a:after {
   outline-offset: 0.3rem;
+  pointer-events: none;
 }
 
 .card__heading a:focus:after {
@@ -399,11 +418,6 @@
     opacity: 1;
     transition: transform var(--duration-long) ease;
     transform: scale(1.03);
-  }
-
-  .underline-links-hover:hover a {
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
   }
 }
 
@@ -461,12 +475,18 @@
   overflow: hidden;
 }
 
+.card-information .price {
+  --color-foreground: 0, 0, 0;
+}
+
 .card-information > * + * {
   margin-top: 0.5rem;
 }
 
-.card-information {
-  width: 100%;
+@media screen and (width <= 768px) {
+  .card-information {
+    width: 100%;
+  }
 }
 
 .card-information > * {

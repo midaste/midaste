@@ -11,32 +11,19 @@
   "sections": {
     "image_banner": {
       "type": "image-banner",
-      "blocks": {
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/drop-1",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "button"
-      ],
       "settings": {
         "image": "shopify://shop_images/immagine_banner_midaste.jpg",
+        "mobile_image": "shopify://shop_images/IMG_2526.heic",
+        "image_link": "shopify://collections/drop-1",
+        "image_link_2": "",
         "image_overlay_opacity": 0,
-        "image_height": "adapt",
+        "image_height": "full",
         "image_behavior": "none",
         "desktop_content_position": "middle-right",
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-1",
-        "stack_images_on_mobile": false,
+        "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": false
       }

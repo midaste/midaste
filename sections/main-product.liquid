@@ -111,6 +111,10 @@
 
                   {% endif %}
 
+                  {% if media == product.metafields.custom.featured_media %}
+                    {% continue %}
+                  {% endif %}
+
                   <div class="swiper-slide">
 
                     {% if section.settings.image_zoom == 'lightbox' %}

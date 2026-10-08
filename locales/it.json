@@ -140,7 +140,7 @@
         "unit_price": "Prezzo unitario"
       },
       "share": "Condividi questo prodotto",
-      "sold_out": "Esaurito",
+      "sold_out": "Sold out",
       "unavailable": "Non disponibile",
       "vendor": "Fornitore",
       "video_exit_message": "{{ title }} apre un video a schermo intero nella stessa finestra.",
@@ -317,6 +317,8 @@
         "title": "Hai un account?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Accedi</a> per un check-out più veloce."
       },
+      "estimated_shipping": "Spedizione",
+      "estimated_shipping_value": "Calcolata al check-out",
       "estimated_total": "Totale stimato",
       "new_estimated_total": "Nuovo totale stimato",
       "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Dazi e imposte inclusi. Sconti e <a href=\"{{ link }}\">spedizione</a> calcolati al check-out.",

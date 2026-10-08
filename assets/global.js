@@ -558,6 +558,13 @@ customElements.define('menu-drawer', MenuDrawer);
 class HeaderDrawer extends MenuDrawer {
   constructor() {
     super();
+    this.clonseButton = this.querySelector('.menu-drawer__close-container button');
+
+    this.clonseButton.addEventListener('click', e => {
+      this.closeMenuDrawer(
+        e, document.querySelector('summary.header__icon--menu')
+      );
+    });
   }
 
   openMenuDrawer(summaryElement) {

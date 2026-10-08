@@ -18,7 +18,9 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "render_beside_title": true
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -74,16 +76,19 @@
       "settings": {
         "enable_sticky_info": false,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "hide_form_label": true,
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
+        "gallery_type": "custom",
+        "enable_loop": true,
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "none",
         "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 32,
+        "enable_video_looping": true,
+        "padding_top": 0,
         "padding_bottom": 32
       }
     },

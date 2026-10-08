@@ -26,6 +26,12 @@
   {%- endif -%}
 
   {%- style -%}
+    {% if section.settings.hide_form_label %}
+      legend.form__label {
+        display: none;
+      }
+    {% endif %}
+
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -77,7 +83,87 @@
     <div class="page-width">
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
-          {% render 'product-media-gallery', variant_images: variant_images %}
+          {% if section.settings.gallery_type == 'custom' %}
+            <fbt-slider class="swiper pdp__media--slider" style="--aspect-ratio: {{ 5.0 | divided_by: 4.0 | times: 100.0 }}%;" data-loop="{{ section.settings.enable_loop }}">
+              <div class="swiper-wrapper">
+                {% for media in product.media %}
+                  {% if media == product.featured_media and product.metafields.custom.featured_media.value != blank %}
+
+                    <div class="swiper-slide">
+
+                      {% if section.settings.image_zoom == 'lightbox' %}
+                        <modal-opener
+                          class="product__modal-opener product__modal-opener--image"
+                          data-modal="#ProductModal-{{ section.id }}"
+                        >
+                          <button class="product__media-toggle product__media-zoom-lightbox quick-add-hidden" type="button" aria-haspopup="dialog" data-media-id="{{ product.metafields.custom.featured_media.value.id }}">
+                      {% endif %}
+
+                        {% render 'product-media', media: product.metafields.custom.featured_media.value, variant_images: variant_images %}
+                        
+                      {% if section.settings.image_zoom == 'lightbox' %}
+                          </button>
+                        </modal-opener>
+                      {% endif %}
+                    </div>
+
+                    {% continue %}
+
+                  {% endif %}
+
+                  {% if media == product.metafields.custom.featured_media.value %}
+                    {% continue %}
+                  {% endif %}
+
+                  <div class="swiper-slide">
+
+                    {% if section.settings.image_zoom == 'lightbox' %}
+                      <modal-opener
+                        class="product__modal-opener product__modal-opener--{{ media.media_type }}"
+                        data-modal="#ProductModal-{{ section.id }}"
+                      >
+                        <button class="product__media-toggle product__media-zoom-lightbox quick-add-hidden" type="button" aria-haspopup="dialog" data-media-id="{{ media.id }}">
+                    {% endif %}
+
+                      {% render 'product-media', media: media, variant_images: variant_images %}
+                      
+                    {% if section.settings.image_zoom == 'lightbox' %}
+                        </button>
+                      </modal-opener>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+
+                {% if product.metafields.custom.featured_media.value != blank %}
+                  <div class="swiper-slide">
+
+                    {% if section.settings.image_zoom == 'lightbox' %}
+                      <modal-opener
+                        class="product__modal-opener product__modal-opener--{{ product.featured_media.media_type }}"
+                        data-modal="#ProductModal-{{ section.id }}"
+                      >
+                        <button class="product__media-toggle product__media-zoom-lightbox quick-add-hidden" type="button" aria-haspopup="dialog" data-media-id="{{ product.featured_media.id }}">
+                    {% endif %}
+
+                      {% render 'product-media', media: product.featured_media, variant_images: variant_images %}
+                      
+                    {% if section.settings.image_zoom == 'lightbox' %}
+                        </button>
+                      </modal-opener>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+              {% if product.media.size > 1 %}
+                <div class="swiper-pagination"></div>
+                <div class="swiper-scrollbar"></div>
+                <div class="swiper-button swiper-button-next"></div>
+                <div class="swiper-button swiper-button-prev"></div>
+              {% endif %}
+            </fbt-slider>
+          {% else %}
+            {% render 'product-media-gallery', variant_images: variant_images %}
+          {% endif %}
         </div>
         <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <section
@@ -98,6 +184,8 @@
                     {{- block.settings.text -}}
                   </p>
                 {%- when 'title' -%}
+                  {% assign price_block = section.blocks | where: 'type', 'price' | first %}
+
                   <div class="product__title" {{ block.shopify_attributes }}>
                     <h1>{{ product.title | escape }}</h1>
                     <a href="{{ product.url }}" class="product__title">
@@ -105,13 +193,42 @@
                         {{ product.title | escape }}
                       </h2>
                     </a>
+
+                    {% if price_block != blank and price_block.settings.render_beside_title %}
+                      {%- render 'price',
+                        product: product,
+                        use_variant: true,
+                        price_class: 'price--large'
+                      -%}
+
+                      <style>
+                         .product__title {
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
+                          gap: 0.5rem;
+                          flex-wrap: wrap;
+
+                          h1 {
+                            flex: 1 1 0;
+                            min-width: 0;
+                            margin: 0;
+                            overflow-wrap: anywhere;
+                            word-break: break-word;
+                          }
+                        }
+                      </style>
+                    {% endif %}
                   </div>
                 {%- when 'price' -%}
+                  {% if block.settings.render_beside_title %}
+                    {% continue %}
+                  {% endif %}
+
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
                       use_variant: true,
-                      show_badges: true,
                       price_class: 'price--large'
                     -%}
                   </div>
@@ -802,6 +919,13 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "render_beside_title",
+          "label": "Mostra accanto al titolo"
+        }
+      ],
       "limit": 1
     },
     {
@@ -2160,6 +2284,12 @@
       "default": "scheme-1"
     },
     {
+      "type": "checkbox",
+      "id": "hide_form_label",
+      "default": true,
+      "label": "Nascondi label varianti"
+    },
+    {
       "type": "header",
       "content": "t:sections.main-product.settings.header.content"
     },
@@ -2207,6 +2337,29 @@
     },
     {
       "type": "select",
+      "id": "gallery_type",
+      "options": [
+        {
+          "value": "default",
+          "label": "Original media gallery"
+        },
+        {
+          "value": "custom",
+          "label": "Custom slider"
+        }
+      ],
+      "default": "default",
+      "label": "Media gallery type"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "default": true,
+      "label": "Enable slider loop",
+      "visible_if": "{{ section.settings.gallery_type == 'custom' }}"
+    },
+    {
+      "type": "select",
       "id": "gallery_layout",
       "options": [
         {
@@ -2227,7 +2380,8 @@
         }
       ],
       "default": "stacked",
-      "label": "t:sections.main-product.settings.gallery_layout.label"
+      "label": "t:sections.main-product.settings.gallery_layout.label",
+      "visible_if": "{{ section.settings.gallery_type == 'default' }}"
     },
     {
       "type": "select",
@@ -2247,7 +2401,8 @@
         }
       ],
       "default": "hide",
-      "label": "t:sections.main-product.settings.mobile_thumbnails.label"
+      "label": "t:sections.main-product.settings.mobile_thumbnails.label",
+      "visible_if": "{{ section.settings.gallery_type == 'default' }}"
     },
     {
       "type": "select",
@@ -2266,12 +2421,18 @@
       "label": "t:sections.main-product.settings.media_position.label"
     },
     {
+      "type": "header",
+      "content": "Info",
+      "info": "Lo zoom hover e' disponibile solo con la galleria di default",
+      "visible_if": "{{ section.settings.image_zoom == 'hover' and section.settings.gallery_type == 'custom' }}"
+    },
+    {
       "type": "select",
       "id": "image_zoom",
       "options": [
         {
           "value": "lightbox",
-          "label": "t:sections.main-product.settings.image_zoom.options__1.label"
+          "label": "t:sections.main-product.settings.image_zoom.options__1.label",
         },
         {
           "value": "hover",

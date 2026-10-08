@@ -18,28 +18,32 @@
           "type": "link_list",
           "settings": {
             "heading": "Company",
-            "menu": "company"
+            "menu": "company",
+            "open_links_in_new_window": false
           }
         },
         "link_list_BYQdFt": {
           "type": "link_list",
           "settings": {
             "heading": "Client Services",
-            "menu": "client-services"
+            "menu": "client-services",
+            "open_links_in_new_window": false
           }
         },
         "link_list_Lb6D6N": {
           "type": "link_list",
           "settings": {
             "heading": "Social",
-            "menu": "social"
+            "menu": "social",
+            "open_links_in_new_window": true
           }
         },
         "link_list_tGGHGL": {
           "type": "link_list",
           "settings": {
             "heading": "Quick Links",
-            "menu": "footer"
+            "menu": "footer",
+            "open_links_in_new_window": false
           }
         }
       },
@@ -53,6 +57,9 @@
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
         "newsletter_heading": "Subscribe to our emails",
+        "show_copyright_year": true,
+        "copyright": "Midaste VAT ID IT14799570966, All Rights Reserved",
+        "copyright_alignment": "center",
         "enable_follow_on_shop": false,
         "show_social": false,
         "enable_country_selector": true,

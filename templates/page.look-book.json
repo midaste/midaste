@@ -34,18 +34,11 @@
             "heading": "Drop 1",
             "heading_size": "h1"
           }
-        },
-        "text_6P7mdx": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Condividi informazioni sul tuo brand con i clienti. Descrivi un prodotto, condividi gli annunci o dai il benvenuto ai clienti nel tuo negozio.</p>"
-          }
         }
       },
       "block_order": [
         "caption_fpL779",
-        "heading_BnBjMM",
-        "text_6P7mdx"
+        "heading_BnBjMM"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {

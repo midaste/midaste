@@ -59,7 +59,7 @@
           "settings": {
             "heading": "Shipping & Returns",
             "icon": "none",
-            "content": "<p>Order processing may take up to 7 days. An email containing the tracking number will be sent to you when the order ships. All packages are insured and trackable.<br/><br/>If you are not completely satisfied with your purchase, you may return your item(s) for store credits/refund/size change. Returns must be requested within 14 days of delivery. The returned item(s)must be in new condition, unworn, in the original packaging.<br/><br/>In the case of purchases made without the payment of shipping costs (for particular promotions in progress), the return with refund will be accepted net of the costs incurred by 545 Srl for shipping to the customer, amounting to euro 7.90/19.90/29.90. This amount will then be deducted from the price of the returned item/s.</p>",
+            "content": "<p>Order processing may take up to 7 days. An email containing the tracking number will be sent to you when the&nbsp;order ships. All packages are insured and trackable.<br/><br/>If you are not completely satisfied with your purchase, you may return your item(s) for store credits/refund/size change. Returns must be requested within 14 days of delivery. The returned item(s)must be in new condition, unworn, in the original packaging.</p>",
             "page": ""
           }
         }

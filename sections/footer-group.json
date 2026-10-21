@@ -35,7 +35,7 @@
           "settings": {
             "heading": "Social",
             "menu": "social",
-            "open_links_in_new_window": false
+            "open_links_in_new_window": true
           }
         },
         "link_list_tGGHGL": {

@@ -51,7 +51,7 @@
             "heading": "Size Guide",
             "icon": "none",
             "content": "",
-            "page": ""
+            "page": "{{ product.metafields.custom.size_guide.value }}"
           }
         },
         "collapsible_tab_7xFm79": {

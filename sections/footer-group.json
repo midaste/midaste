@@ -35,7 +35,7 @@
           "settings": {
             "heading": "Social",
             "menu": "social",
-            "open_links_in_new_window": true
+            "open_links_in_new_window": false
           }
         },
         "link_list_tGGHGL": {
@@ -58,11 +58,11 @@
         "newsletter_enable": true,
         "newsletter_heading": "Subscribe to our emails",
         "show_copyright_year": true,
-        "copyright": "Midaste VAT ID IT14799570966, All Rights Reserved",
+        "copyright": "Midaste",
         "copyright_alignment": "center",
         "enable_follow_on_shop": false,
         "show_social": false,
-        "enable_country_selector": true,
+        "enable_country_selector": false,
         "enable_language_selector": true,
         "payment_enable": false,
         "show_policy": false,

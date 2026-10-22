@@ -28,6 +28,22 @@
             "text_size": "medium"
           }
         },
+        "caption_FntHBj": {
+          "type": "caption",
+          "settings": {
+            "caption": "PHOTOGRAPHY BY SEBASTIANO MANGAR",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "caption_p33Xec": {
+          "type": "caption",
+          "settings": {
+            "caption": "@Seba24y",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
         "heading_BnBjMM": {
           "type": "heading",
           "settings": {
@@ -38,6 +54,8 @@
       },
       "block_order": [
         "caption_fpL779",
+        "caption_FntHBj",
+        "caption_p33Xec",
         "heading_BnBjMM"
       ],
       "name": "t:sections.rich-text.presets.name",
@@ -76,7 +94,7 @@
         "column_U6rRHx": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/IMG_5404_2.jpg",
+            "image": "shopify://shop_images/SEB08607.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -310,7 +328,53 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 8,
-        "padding_bottom": 36
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_TG3FAD": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XMfCLm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/SEB08292.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_x6h9G3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/SEB08738.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_XMfCLm",
+        "column_x6h9G3"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 8,
+        "padding_bottom": 32
       }
     }
   },
@@ -321,6 +385,7 @@
     "multicolumn_THUH9R",
     "multicolumn_P3Hpg9",
     "multicolumn_dmCict",
-    "multicolumn_XBVqPe"
+    "multicolumn_XBVqPe",
+    "multicolumn_TG3FAD"
   ]
 }

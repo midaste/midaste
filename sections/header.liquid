@@ -37,12 +37,14 @@
 
     #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__icons .header__icon,
     #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__icon--menu {
-      {% comment %} color: #fff; {% endcomment %}
+      color: {{ section.settings.initial_icons_color }};
     }
 
-    #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__heading-logo-wrapper {
-      {% comment %} filter: invert(1); {% endcomment %}
-    }
+    {% if section.settings.invert_logo_colors %}
+      #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__heading-logo-wrapper {
+        filter: invert(1);
+      }
+    {% endif %}
   {% endif %}
 
   header-drawer {
@@ -554,6 +556,18 @@
       ],
       "default": "center",
       "label": "t:sections.header.settings.mobile_logo_position.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "invert_logo_colors",
+      "label": "Invert logo color",
+      "info": "Color is inverted initially only"
+    },
+    {
+      "type": "color",
+      "id": "initial_icons_color",
+      "label": "Initial icon colors",
+      "default": "#000000"
     },
     {
       "type": "link_list",

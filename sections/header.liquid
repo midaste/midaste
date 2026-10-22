@@ -37,11 +37,11 @@
 
     #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__icons .header__icon,
     #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__icon--menu {
-      color: #fff;
+      {% comment %} color: #fff; {% endcomment %}
     }
 
     #shopify-section-{{ section.id }} .gradient:not(.header-wrapper--scrolled) .header__heading-logo-wrapper {
-      filter: invert(1);
+      {% comment %} filter: invert(1); {% endcomment %}
     }
   {% endif %}
 

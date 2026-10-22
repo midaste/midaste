@@ -25,7 +25,7 @@
           "settings": {
             "caption": "LOOK BOOK",
             "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "text_size": "large"
           }
         },
         "caption_FntHBj": {
@@ -33,7 +33,7 @@
           "settings": {
             "caption": "PHOTOGRAPHY BY SEBASTIANO MANGAR",
             "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "text_size": "large"
           }
         },
         "caption_p33Xec": {
@@ -74,7 +74,7 @@
         "column_wpbn9a": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/IMG_5299.jpg",
+            "image": "shopify://shop_images/SEB07528-8.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -131,7 +131,7 @@
         "column_w3RMFt": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/IMG_5411_2.jpg",
+            "image": "shopify://shop_images/SEB08738.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -290,7 +290,7 @@
         "column_3VzMFg": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/SEB08778.jpg",
+            "image": "shopify://shop_images/IMG_5414_2.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -300,7 +300,7 @@
         "column_3ieKwG": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/IMG_5414_2.jpg",
+            "image": "shopify://shop_images/SEB08778.jpg",
             "title": "",
             "text": "",
             "link_label": "",
